@@ -16,4 +16,6 @@ export interface Lesson {
   description: string;
   concepts: string[];
   type: 'Lesson' | 'Activity';
+  pdfUrl?: string;
+  sprint: number;
 }

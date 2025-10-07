@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { QuizQuestion } from '../types';
 
@@ -25,9 +24,9 @@ export const generateContent = async (prompt: string): Promise<string> => {
   }
 };
 
-export const generateQuiz = async (): Promise<QuizQuestion[]> => {
-    const prompt = `Generate 5 multiple-choice quiz questions about VEX IQ robotics basics for middle school students.
-    The topics should cover gears, sensors, motors, and the robot brain.
+export const generateQuiz = async (topic: string): Promise<QuizQuestion[]> => {
+    const prompt = `Generate 10 multiple-choice quiz questions about VEX IQ robotics for middle school students, focusing specifically on the topic of "${topic}".
+    The questions should be relevant to a sprint covering these concepts.
     For each question, provide 4 options and clearly indicate the correct answer.`;
 
     try {
