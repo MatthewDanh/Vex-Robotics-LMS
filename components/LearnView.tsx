@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Lesson } from '../types';
 import { curriculum, sprintTopics } from '../curriculumData';
@@ -99,7 +98,7 @@ const LearnView: React.FC = () => {
                  <div className="md:col-span-2 bg-slate-800 p-6 rounded-lg border border-slate-700 shadow-xl overflow-y-auto max-h-[80vh]">
                     {selectedLesson ? (
                         lessonContent ? (
-                            <LessonContentView content={lessonContent} />
+                            <LessonContentView content={lessonContent} videoId={selectedLesson?.videoId} />
                         ) : (
                              <div className="flex items-center justify-center h-full min-h-[300px] p-6">
                                 <p className="text-gray-400 text-lg text-center">Content for '{selectedLesson.title}' is not available yet.</p>

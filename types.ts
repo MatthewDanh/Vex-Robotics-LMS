@@ -1,14 +1,4 @@
-export type ViewType = 'learn' | 'build' | 'code' | 'quiz' | 'concepts';
-
-export interface QuizQuestion {
-  question: string;
-  options: string[];
-  correctAnswer: string;
-}
-
-export interface QuizResponse {
-  questions: QuizQuestion[];
-}
+export type ViewType = 'learn' | 'build' | 'code' | 'videos' | 'concepts' | 'classroom';
 
 export interface Lesson {
   title: string;
@@ -18,6 +8,7 @@ export interface Lesson {
   type: 'Lesson' | 'Activity' | 'Overview';
   pdfUrl?: string;
   sprint: number;
+  videoId?: string;
 }
 
 export interface LessonContent {
@@ -56,4 +47,10 @@ export interface Video {
 export interface VideoCategory {
   title: string;
   videos: Video[];
+}
+// Fix: Add missing QuizQuestion type for the QuizView component.
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: string;
 }

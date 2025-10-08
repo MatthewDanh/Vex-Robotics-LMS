@@ -1,14 +1,27 @@
-
 import React from 'react';
 import { LessonContent } from '../types';
 
 interface LessonContentViewProps {
   content: LessonContent;
+  videoId?: string;
 }
 
-const LessonContentView: React.FC<LessonContentViewProps> = ({ content }) => {
+const LessonContentView: React.FC<LessonContentViewProps> = ({ content, videoId }) => {
   return (
     <div className="text-gray-300">
+      {videoId && (
+        <div className="aspect-video w-full rounded-lg overflow-hidden border-2 border-slate-600 bg-gray-900 mb-6">
+            <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="Sprint Overview"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            ></iframe>
+        </div>
+      )}
       <h1 className="text-3xl font-black text-cyan-300 mb-2">{content.title}</h1>
       {content.subtitle && <h2 className="text-xl font-bold text-gray-300 mb-6">{content.subtitle}</h2>}
       <p className="text-gray-400 mb-8 leading-relaxed">{content.description}</p>

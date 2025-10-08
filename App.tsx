@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import LearnView from './components/LearnView';
 import BuildView from './components/BuildView';
 import CodeView from './components/CodeView';
-import QuizView from './components/QuizView';
+import VideosView from './components/VideosView';
 import ConceptsView from './components/ConceptsView';
+import ClassroomView from './components/ClassroomView';
 import Header from './components/Header';
 import { ViewType } from './types';
 
@@ -14,8 +15,9 @@ const App: React.FC = () => {
     learn: <LearnView />,
     build: <BuildView />,
     code: <CodeView />,
-    quiz: <QuizView />,
+    videos: <VideosView />,
     concepts: <ConceptsView />,
+    classroom: <ClassroomView />,
   };
 
   return (

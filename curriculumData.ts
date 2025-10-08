@@ -21,6 +21,7 @@ export const curriculum: Lesson[] = [
         concepts: ["Robotics", "Engineering", "Building", "VEX Parts"],
         type: 'Overview',
         sprint: 1,
+        videoId: "DKLYwXpOnmY"
     },
     {
         title: "Get in Shape",

@@ -1,6 +1,6 @@
 import React from 'react';
 
-type IconType = 'logo' | 'learn' | 'build' | 'code' | 'quiz' | 'concepts';
+type IconType = 'logo' | 'learn' | 'build' | 'code' | 'videos' | 'concepts' | 'classroom';
 
 interface IconProps {
   type: IconType;
@@ -31,11 +31,9 @@ const Icon: React.FC<IconProps> = ({ type, className = '' }) => {
         <polyline points="8 6 2 12 8 18"></polyline>
       </svg>
     ),
-    quiz: (
+    videos: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
       </svg>
     ),
     concepts: (
@@ -43,6 +41,12 @@ const Icon: React.FC<IconProps> = ({ type, className = '' }) => {
             <path d="M9 18h6M12 2a7 7 0 0 1 7 7c0 3-2 5-2 5H7s-2-2-2-5a7 7 0 0 1 7-7z"></path>
             <path d="M12 14v1"></path>
         </svg>
+    ),
+    classroom: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c0 1.66 4 3 6 3s6-1.34 6-3v-5"></path>
+      </svg>
     )
   };
 

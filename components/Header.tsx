@@ -13,7 +13,8 @@ const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => {
     { view: 'build', label: 'Build', icon: <Icon type="build" /> },
     { view: 'code', label: 'Code', icon: <Icon type="code" /> },
     { view: 'concepts', label: 'Concepts', icon: <Icon type="concepts" /> },
-    { view: 'quiz', label: 'Quiz', icon: <Icon type="quiz" /> },
+    { view: 'videos', label: 'Videos', icon: <Icon type="videos" /> },
+    { view: 'classroom', label: 'Classroom', icon: <Icon type="classroom" /> },
   ];
 
   return (

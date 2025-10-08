@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView }) => {
     { view: 'learn', label: 'Learn', icon: <Icon type="learn" /> },
     { view: 'build', label: 'Build', icon: <Icon type="build" /> },
     { view: 'code', label: 'Code', icon: <Icon type="code" /> },
-    { view: 'quiz', label: 'Quiz', icon: <Icon type="quiz" /> },
+    // Fix: Removed 'quiz' view as it's not a valid ViewType and Icon type does not exist.
   ];
 
   return (

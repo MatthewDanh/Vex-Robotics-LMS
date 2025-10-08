@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ContentDisplay from './ContentDisplay';
 
@@ -75,13 +74,18 @@ const BuildView: React.FC = () => {
                     isLoading={false} 
                     error={null}>
                     {selectedBuild ? (
-                        <div className="w-full h-[600px] rounded-lg overflow-hidden border-2 border-slate-600 bg-gray-900">
-                            <iframe
-                                title={selectedBuild.name}
-                                src={`https://instructions.online/?id=${selectedBuild.embedId}`}
-                                className="w-full h-full"
-                                allowFullScreen
-                            />
+                        <div>
+                            <p className="text-sm text-cyan-300/80 mb-4 font-mono">
+                                Embed ID: {selectedBuild.embedId}
+                            </p>
+                            <div className="w-full h-[600px] rounded-lg overflow-hidden border-2 border-slate-600 bg-gray-900">
+                                <iframe
+                                    title={selectedBuild.name}
+                                    src={`https://instructions.online/?id=${selectedBuild.embedId}`}
+                                    className="w-full h-full"
+                                    allowFullScreen
+                                />
+                            </div>
                         </div>
                     ) : (
                         <div className="flex items-center justify-center h-full min-h-[300px]">
