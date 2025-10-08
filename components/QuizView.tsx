@@ -1,21 +1,11 @@
+
 import React, { useState, useCallback } from 'react';
 import { QuizQuestion } from '../types';
 import { generateQuiz } from '../services/geminiService';
 import LoadingSpinner from './LoadingSpinner';
+import { sprintTopics } from '../curriculumData';
 
 type QuizState = 'not_started' | 'in_progress' | 'finished';
-
-const quizTopics = [
-    { sprint: 1, title: "Robotic Fundamentals" },
-    { sprint: 2, title: "Robotics with VEX IQ" },
-    { sprint: 3, title: "Advanced Robotics with AI Integration" },
-    { sprint: 4, title: "3D Modeling" },
-    { sprint: 5, title: "Midterm Robotics Project" },
-    { sprint: 6, title: "Electrical Engineering with AI insights" },
-    { sprint: 7, title: "Electricity II" },
-    { sprint: 8, title: "Engineering Design" },
-    { sprint: 9, title: "Final Project" },
-];
 
 const QuizView: React.FC = () => {
     const [quizState, setQuizState] = useState<QuizState>('not_started');
@@ -104,17 +94,17 @@ const QuizView: React.FC = () => {
                 return (
                     <div className="w-full">
                         <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold mb-2 text-rose-400">Test Your Knowledge!</h2>
+                            <h2 className="text-3xl font-bold mb-2 text-orange-400">Test Your Knowledge!</h2>
                             <p className="text-gray-400 max-w-lg mx-auto">Select a sprint to start the quiz and see how much you've learned.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {quizTopics.map((topic) => (
+                            {sprintTopics.map((topic) => (
                                 <button
                                     key={topic.sprint}
                                     onClick={() => startQuiz(topic.title)}
-                                    className="bg-slate-700 p-4 rounded-lg text-left hover:bg-rose-500/80 hover:scale-105 transition-all duration-200 shadow-md flex flex-col justify-between h-32"
+                                    className="bg-slate-700 p-4 rounded-lg text-left hover:bg-orange-500/80 hover:scale-105 transition-all duration-200 shadow-md flex flex-col justify-between h-32"
                                 >
-                                    <span className="text-xs font-bold text-rose-300">Sprint {topic.sprint}</span>
+                                    <span className="text-xs font-bold text-orange-300">Sprint {topic.sprint}</span>
                                     <span className="font-semibold text-gray-100">{topic.title}</span>
                                 </button>
                             ))}
@@ -126,7 +116,7 @@ const QuizView: React.FC = () => {
                 return (
                     <div>
                         <div className="mb-4">
-                           <p className="text-sm font-bold text-rose-400">{selectedTopic}</p>
+                           <p className="text-sm font-bold text-orange-400">{selectedTopic}</p>
                            <p className="text-sm font-medium text-gray-400">Question {currentQuestionIndex + 1} of {questions.length}</p>
                         </div>
                         <h3 className="text-2xl font-semibold mb-6">{currentQuestion.question}</h3>
@@ -135,9 +125,9 @@ const QuizView: React.FC = () => {
                                 const isSelected = selectedAnswer === option;
                                 let buttonClass = "bg-slate-700 hover:bg-slate-600";
                                 if (isSelected) {
-                                    buttonClass = isCorrect ? "bg-green-600" : "bg-red-600";
+                                    buttonClass = isCorrect ? "bg-lime-500" : "bg-red-500";
                                 } else if (selectedAnswer && option === currentQuestion.correctAnswer) {
-                                    buttonClass = "bg-green-600/50";
+                                    buttonClass = "bg-lime-500/50";
                                 }
                                 return (
                                     <button
@@ -157,11 +147,11 @@ const QuizView: React.FC = () => {
                 const percentage = Math.round((score / questions.length) * 100);
                 return (
                      <div className="text-center">
-                        <h2 className="text-2xl font-bold mb-1 text-rose-400">Quiz Complete!</h2>
+                        <h2 className="text-2xl font-bold mb-1 text-orange-400">Quiz Complete!</h2>
                         <p className="text-sm font-semibold text-gray-400 mb-4">{selectedTopic}</p>
                         <p className="text-5xl font-black text-white mb-2">{percentage}%</p>
                         <p className="text-gray-300 text-xl mb-8">You answered {score} out of {questions.length} questions correctly.</p>
-                        <button onClick={resetQuiz} className="bg-rose-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-rose-600 transition-transform hover:scale-105 shadow-lg">
+                        <button onClick={resetQuiz} className="bg-orange-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-orange-600 transition-transform hover:scale-105 shadow-lg">
                             Choose Another Quiz
                         </button>
                     </div>

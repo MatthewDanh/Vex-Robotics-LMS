@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ContentDisplay from './ContentDisplay';
 
@@ -49,7 +50,7 @@ const BuildView: React.FC = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-1 bg-slate-800 p-6 rounded-lg border border-slate-700 shadow-xl max-h-[80vh] overflow-y-auto">
-                <h2 className="text-2xl font-bold mb-4 text-purple-400">Build Guides</h2>
+                <h2 className="text-2xl font-bold mb-4 text-fuchsia-400">Build Guides</h2>
                 {buildData.map((category) => (
                     <div key={category.title} className="mb-6">
                         <h3 className="text-lg font-semibold text-gray-300 mb-2 border-b border-slate-600 pb-1">{category.title}</h3>
@@ -58,7 +59,7 @@ const BuildView: React.FC = () => {
                                 <li
                                     key={index}
                                     onClick={() => handleTopicSelect(topic)}
-                                    className={`p-3 rounded-md cursor-pointer transition-all duration-200 mb-2 ${selectedBuild?.name === topic.name ? 'bg-purple-600 text-white font-semibold' : 'hover:bg-slate-700'}`}
+                                    className={`p-3 rounded-md cursor-pointer transition-all duration-200 mb-2 ${selectedBuild?.name === topic.name ? 'bg-fuchsia-600 text-white font-semibold' : 'hover:bg-slate-700'}`}
                                 >
                                     {topic.name}
                                 </li>

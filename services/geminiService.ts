@@ -68,6 +68,10 @@ export const generateQuiz = async (topic: string): Promise<QuizQuestion[]> => {
         });
 
         const jsonText = response.text.trim();
+        if (!jsonText) {
+            console.error("Received empty response from Gemini for quiz generation.");
+            return [];
+        }
         const parsedData = JSON.parse(jsonText);
         return parsedData.questions || [];
 

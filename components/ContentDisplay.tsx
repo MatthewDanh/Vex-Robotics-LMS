@@ -12,17 +12,16 @@ interface ContentDisplayProps {
 
 const ContentDisplay: React.FC<ContentDisplayProps> = ({ title, content, isLoading, error, children }) => {
   const formatContent = (text: string) => {
-    return text.split('\n').map((paragraph, index) => {
-      if (paragraph.trim().startsWith('1.') || paragraph.trim().startsWith('2.') || paragraph.trim().startsWith('3.') || paragraph.trim().startsWith('4.') || paragraph.trim().startsWith('5.') || paragraph.trim().startsWith('Step')) {
-        return <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>;
-      }
-      return <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>;
-    });
+    // The previous implementation had a redundant conditional check.
+    // This simplified version achieves the same result more cleanly.
+    return text.split('\n').map((paragraph, index) => (
+      <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>
+    ));
   };
 
   return (
     <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 shadow-xl min-h-[400px]">
-      <h2 className="text-3xl font-bold mb-6 text-blue-400 border-b-2 border-slate-600 pb-2">{title}</h2>
+      <h2 className="text-3xl font-bold mb-6 text-cyan-400 border-b-2 border-slate-600 pb-2">{title}</h2>
       {isLoading && (
         <div className="flex flex-col items-center justify-center h-full min-h-[300px]">
             <LoadingSpinner />

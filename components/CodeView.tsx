@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Icon from './Icon';
 
@@ -12,7 +13,7 @@ const CodePlatformCard: React.FC<{ title: string; description: string; url: stri
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-emerald-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-emerald-600 transition-transform hover:scale-105 shadow-md"
+                className="inline-flex items-center gap-3 bg-lime-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-lime-600 transition-transform hover:scale-105 shadow-md"
             >
                 <div className="w-6 h-6">
                    <Icon type="code" />
@@ -28,7 +29,7 @@ const CodeView: React.FC = () => {
     return (
         <div className="flex flex-col h-full items-center justify-center p-4">
              <div className="text-center mb-10">
-                <h2 className="text-4xl font-black tracking-tight text-emerald-400">Choose Your Coding Environment</h2>
+                <h2 className="text-4xl font-black tracking-tight text-lime-400">Choose Your Coding Environment</h2>
                 <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-lg">
                     Select between programming a physical VEX IQ robot or experimenting in a fully virtual environment.
                 </p>

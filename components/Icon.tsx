@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-type IconType = 'logo' | 'learn' | 'build' | 'code' | 'quiz';
+type IconType = 'logo' | 'learn' | 'build' | 'code' | 'quiz' | 'concepts';
 
 interface IconProps {
   type: IconType;
@@ -39,6 +38,12 @@ const Icon: React.FC<IconProps> = ({ type, className = '' }) => {
         <line x1="12" y1="17" x2="12.01" y2="17"></line>
       </svg>
     ),
+    concepts: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            <path d="M9 18h6M12 2a7 7 0 0 1 7 7c0 3-2 5-2 5H7s-2-2-2-5a7 7 0 0 1 7-7z"></path>
+            <path d="M12 14v1"></path>
+        </svg>
+    )
   };
 
   return icons[type] || null;
